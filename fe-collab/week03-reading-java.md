@@ -66,7 +66,7 @@ public record LoanResponse(
 |---|------|------|
 | 1 | `BookRequest` 를 TypeScript `type` 으로 쓰면? | isbn : string; title:string; author:string; |
 | 2 | `BookResponse` 의 `long id` 는 TypeScript 에서 무엇인가? `null` 일 수 있는가? | number |
-| 3 | `LoanResponse.returnedAt` 의 TypeScript 타입은? (Java 타입은 `Instant`) | string, 예측 실패 string | null |
+| 3 | `LoanResponse.returnedAt` 의 TypeScript 타입은? (Java 타입은 `Instant`) | string, 예측 실패 string이거나 null임 |
 | 4 | `LoanResponse` 의 `loanedAt` 은 JSON 에서 어떤 모양의 값인가? | 모르겠음, ISO 8601 형식의 문자열 |
 | 5 | `@NotBlank` 는 TypeScript 타입에 어떤 흔적을 남기는가? | 비어있어서는 안되는 값, 예측 실패. 흔적이 없음. @NotBlank는 스펙에 minLengh: 1로 나가지만,타입스크립트 타입은 그냥 string |
 | 6 | `static BookResponse from(Book b)` 는 TypeScript 의 무엇과 비슷한가? | 모르겠음 , 변환 함수입니다. BookResponse.from(book) 처럼 클래스 이름으로 호출하는 static 메서드이고, 엔티티(DB 모양)를 응답(API 모양)으로 바꿉니다. TypeScript 에서는 toBookResponse(book) 같은 함수나 클래스의 static 메서드와 같은 역할|

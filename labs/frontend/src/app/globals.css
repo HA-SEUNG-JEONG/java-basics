@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/*
+ * 디자인 토큰 (이 파일이 SSOT).
+ * 1) :root 에 CSS 변수로 값을 두고 (다크 모드는 변수만 바꾼다)
+ * 2) @theme inline 이 그 변수를 Tailwind 유틸리티 이름(bg-surface, text-danger, p-gutter ...)으로 노출한다.
+ * 컴포넌트에서는 이 이름만 쓴다: p-[13px], bg-[#fff] 같은 임의값 금지.
+ */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --fg: #0f172a;
+  --muted: #475569;
+  --line: #cbd5e1;
+  --primary: #1d4ed8;
+  --on-primary: #ffffff;
+  --danger: #b91c1c;
+  --danger-soft: #fee2e2;
+  --warning: #92400e;
+  --warning-soft: #fef3c7;
+  --info: #1e40af;
+  --info-soft: #dbeafe;
+  --success: #166534;
+  --success-soft: #dcfce7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --surface: #111a2e;
+    --fg: #e2e8f0;
+    --muted: #94a3b8;
+    --line: #334155;
+    --primary: #60a5fa;
+    --on-primary: #0b1220;
+    --danger: #fca5a5;
+    --danger-soft: #450a0a;
+    --warning: #fcd34d;
+    --warning-soft: #451a03;
+    --info: #93c5fd;
+    --info-soft: #172554;
+    --success: #86efac;
+    --success-soft: #052e16;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+
+  /* 간격: p-gutter, gap-stack ... (기본 숫자 스케일 p-4 도 토큰이다: 1단위 = 0.25rem) */
+  --spacing-gutter: 1rem;
+  --spacing-stack: 1.5rem;
+  --spacing-field: 0.5rem;
+
+  --container-page: 48rem;
+  --radius-card: 0.5rem;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+}

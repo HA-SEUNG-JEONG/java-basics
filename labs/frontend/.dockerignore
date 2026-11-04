@@ -1,0 +1,10 @@
+node_modules
+.next
+test-results
+playwright-report
+.vitest
+.omc
+.env
+.env.local
+*.tsbuildinfo
+*.log

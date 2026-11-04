@@ -1,0 +1,17 @@
+.idea/
+.omc/
+hook-debug.log
+.DS_Store
+out/
+*.class
+
+# 의도치 않게 생긴 0B 파일
+/200*
+/201*
+/204
+.gradle/
+build/
+node_modules/
+dist/
+.env
+.env.*

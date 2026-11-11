@@ -55,5 +55,3 @@ record Book(long id, String title) {}
 | 8 | `books.add(...)` 의 catch | (적지 않음) | `읽기 전용 목록` | ★ | `List.of` 로 만든 목록은 수정 불가라서 `add` 가 `UnsupportedOperationException` 을 던진다. |
 | 9 | `(a == b) + " " + (c == d) + " " + c.equals(d)` | (적지 않음) | `true false true` | ★ | `Long` 은 -128~127 만 캐시를 재사용해서 127 은 `==` 가 `true`, 1000 은 새 객체라 `false` 이고, `equals` 는 값 비교라 `true` 다. |
 | 10 | `(s1 == s2) + " " + s1.equals(s2)` | `true` | `false true` | ★ | `new String("TDD")` 는 새 객체라 `==` 는 `false` 이고, `equals` 는 내용 비교라 `true` 다. |
-
-정리: 10줄 중 맞춘 줄은 2번 하나입니다. 이번에 가장 크게 배운 것은 **객체 비교는 `==` 가 아니라 `equals`** 라는 점입니다(3, 9, 10번).

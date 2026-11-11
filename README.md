@@ -37,7 +37,7 @@ React·TypeScript·Next.js 로 일하는 프론트엔드 개발자가 **백엔�
 |----|------|------|
 | 1 | [HTTP·DevTools·curl](fe-collab/week1/week01-http-devtools.md) | 네트워크 탭과 `curl` 로 메서드·URL·헤더·본문·상태 코드를 읽고, 같은 요청을 재현해 "프론트 문제인가, 서버 문제인가" 를 가린다 |
 | 2 | [REST 설계와 JSON 계약](fe-collab/week02-rest-json-contract.md) | 리소스·메서드의 멱등성·상태 코드·필수/`null`/생략 필드·오류 본문을 실제 응답으로 확인하고 엔드포인트 하나의 계약을 한 장으로 요약 |
-| 3 | [Java 코드 읽기](fe-collab/week03-reading-java.md) | `class`, `record`, `interface`, `enum`, 어노테이션, `Optional`, 컬렉션, 예외, 제네릭을 TypeScript 와 나란히 놓고 읽기 |
+| 3 | [Java 코드 읽기](fe-collab/week3/week03-reading-java.md) | `class`, `record`, `interface`, `enum`, 어노테이션, `Optional`, 컬렉션, 예외, 제네릭을 TypeScript 와 나란히 놓고 읽기 |
 | 4 | [Spring 코드 읽기](fe-collab/week04-reading-spring.md) | 컨트롤러·서비스·리포지토리의 어노테이션이 URL·상태 코드·응답 JSON 으로 이어지는 길을 추적하고, 백엔드 PR diff 에서 영향과 질문 뽑기 |
 | 5 | [DB·JPA 개념](fe-collab/week05-db-jpa.md) | 테이블·`JOIN`·트랜잭션·N+1·인덱스를 읽고, 백엔드 PR 의 요청·응답·테이블 영향 설명하기 (**마일스톤**) |
 

@@ -2,7 +2,7 @@
 
 **예상 시간:** 6~8시간 (하루 1시간 세션 8회) | **목표:** 백엔드 PR 에 나온 Java 파일을 열어 `class`, `record`, `interface`, `enum`, 어노테이션, `Optional`, `List`/`Map`, 예외, 제네릭을 읽고, 각각이 JSON 계약과 프론트 타입에서 무엇에 해당하는지 말할 수 있다. 이 주차는 Java 를 **쓰는 법**이 아니라 **읽는 법**을 다룬다.
 
-> 3주부터 5주까지는 백엔드 코드를 읽는 구간입니다. 읽기 자료는 참조 API `../labs/backend/week25/src/main/java/library/` 의 실제 소스이고, 이 API 는 "백엔드 팀이 준 API" 입니다. 직접 만든 코드가 아니므로 처음에는 낯선 것이 정상입니다. 이 문서에서 `Book.java`, `Dto.java`, `LibraryService.java` 처럼 파일 이름을 밝힌 Java 인용은 그 파일에서 그대로 옮긴 것이고, 참조 API 에 없는 개념을 설명하려고 따로 만든 코드(`Predict03.java`, `Break03.java`, `EnumJson.java` 등)는 JDK 21 로 직접 실행해 확인한 것입니다.
+> 3주부터 5주까지는 백엔드 코드를 읽는 구간입니다. 읽기 자료는 참조 API `../../labs/backend/week25/src/main/java/library` 의 실제 소스이고, 이 API 는 "백엔드 팀이 준 API" 입니다. 직접 만든 코드가 아니므로 처음에는 낯선 것이 정상입니다. 이 문서에서 `Book.java`, `Dto.java`, `LibraryService.java` 처럼 파일 이름을 밝힌 Java 인용은 그 파일에서 그대로 옮긴 것이고, 참조 API 에 없는 개념을 설명하려고 따로 만든 코드 (`Predict03.java`, `Break03.java`, `EnumJson.java` 등)는 JDK 21 로 직접 실행해 확인한 것입니다.
 >
 > 준비물: JDK 21 (`java -version` 으로 확인), 소스를 열어 볼 에디터, 작업용 빈 폴더. 서버는 켜지 않아도 됩니다. 이 문서의 TypeScript 조각은 TypeScript 5.9 의 `--strict` 로 타입 검사를 통과한 것이고, Java 조각 중 "실행 결과" 가 적힌 것은 JDK 21 로 직접 컴파일·실행한 출력입니다.
 >
@@ -31,7 +31,7 @@
 
 ### 1단계. Java 를 읽고 TypeScript 타입으로 옮겨 적기 (30분)
 
-`../labs/backend/week25/src/main/java/library/Dto.java` 에서 가져온 아래 코드를 읽으세요. 이 파일은 "API 가 주고받는 JSON 의 모양" 을 정의합니다.
+`../../labs/backend/week25/src/main/java/library/Dto.java` 에서 가져온 아래 코드를 읽으세요. 이 파일은 "API 가 주고받는 JSON 의 모양" 을 정의합니다.
 
 ```java
 public record BookRequest(@NotBlank String isbn, @NotBlank String title, @NotBlank String author) {}
@@ -941,11 +941,11 @@ function firstOrNull<T>(list: T[]): T | null {
 
 위 JSON 두 값은 참조 API 를 직접 호출해 얻은 실제 응답입니다. 한 층에서 이름·타입·`null` 가능성이 바뀌면 아래 층이 모두 영향을 받습니다. **PR 을 읽는다는 것은 이 길의 어느 층이 바뀌었는지 찾는 일** 입니다.
 
-더 깊이 알고 싶다면 옛 Java 커리큘럼의 [인터페이스·enum·record](../archive/java-24weeks/week07-interface-enum-record.md), [클래스](../archive/java-24weeks/week05-classes.md), [제네릭과 Optional](../archive/java-24weeks/week12-generics-optional.md) 을 참고하세요. 그 문서들은 코드를 직접 쓰는 관점입니다.
+더 깊이 알고 싶다면 옛 Java 커리큘럼의 [인터페이스·enum·record](../../archive/java-24weeks/week07-interface-enum-record.md), [클래스](../../archive/java-24weeks/week05-classes.md), [제네릭과 Optional](../../archive/java-24weeks/week12-generics-optional.md) 을 참고하세요. 그 문서들은 코드를 직접 쓰는 관점입니다.
 
 ## 연습문제
 
-1. `../labs/backend/week25/src/main/java/library/Member.java` 를 1절의 순서(패키지 → 어노테이션 → 선언 → 필드 → 생성자 → 메서드)로 읽고, 이 엔티티를 TypeScript `class` 로 옮기세요. `@Table(name = "members")` 위의 주석은 무슨 말인가요? 응답용 `MemberResponse` 와 무엇이 다른가요?
+1. `../../labs/backend/week25/src/main/java/library/Member.java` 를 1절의 순서 (패키지 → 어노테이션 → 선언 → 필드 → 생성자 → 메서드)로 읽고, 이 엔티티를 TypeScript `class` 로 옮기세요. `@Table(name = "members")` 위의 주석은 무슨 말인가요? 응답용 `MemberResponse` 와 무엇이 다른가요?
 2. `LibraryService.lend` 의 앞부분 네 가지 실패 조건(`orElseThrow` 두 곳, `if` 두 곳)을 위에서부터 순서대로 적고, 각각 어떤 예외를 던지는지 쓰세요. 순서를 바꾸면 클라이언트가 받는 오류가 어떻게 달라질 수 있나요?
 3. `LibraryServiceTest.FakeLoans.countByMemberIdAndReturnedAtIsNull` 이 하는 일을 TypeScript 한 줄(배열 메서드 체인)로 쓰세요.
 4. `Predict03.java` 의 `find` 를 `null` 을 돌려주는 방식으로 바꾸면 호출부는 어떻게 달라져야 하나요? `Optional` 이 호출부에 강제하는 것은 무엇인가요?
